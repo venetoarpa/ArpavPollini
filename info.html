@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=320; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Tecnoteca srl">
+	<title>Arpav Pollini - Informazioni</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/pollini.css" />		
+	
+	<script type="text/javascript" src="js/pollini/pollini.js"></script>
+	<script type="text/javascript" src="js/pollini/db/stazione.js"></script>
+	<script type="text/javascript" src="js/pollini/db/particella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/giorno.js"></script>
+	<script type="text/javascript" src="js/pollini/db/service.js"></script>
+	<script type="text/javascript" src="js/pollini/db/preferenzaParticella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/preferenzaStazione.js"></script>	
+	
+	<script type="text/javascript" src="cordova-2.3.0.js"></script>
+	
+	<script type="text/javascript" src="js/jquery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-init.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mobile-1.2.0.min.js"></script>		
+</head>
+
+<body class="theme">
+	<div data-role="page">
+		<div data-role="header" id="polliniHeader">
+			<img src="img/banner_app_pollini_sx.png" width="50%" class="floatLeft"/>
+			<img src="img/banner_app_pollini_dx_empty.png" width="50%" id="customBanner" />
+		</div>
+		<div class="ui-header ui-bar-b">
+			<h6 class="ui-title">BOLLETTINO POLLINI</h6>
+			<a href="index.html" data-icon="home" class="ui-btn-right" data-theme="b">Home</a>
+		</div>			
+		<div class="ui-header ui-sub-bar-a">
+			<h6 class="ui-title">Informazioni</h6>
+		</div>
+
+		<div data-role="content">
+        	<p>I dati presentati si riferiscono all’ultima rilevazione disponibile.<br/>
+				La previsione delle concentrazioni è ottenuta come valore medio dei dati storici calcolato sui sette giorni successivi, può quindi subire variazioni in funzione delle condizioni meteorologiche stagionali.
+			</p>
+			<p>
+				Ulteriori informazioni disponibili  
+				<a href='#' class='polliniLink' rel='http://www.arpa.veneto.it/bollettini/htm/allergenici.asp'>online</a>.
+			</p>
+		</div>
+		
+		<script type="text/javascript" src="js/infoPage.js"></script>
+		<script type="text/javascript">
+			new Pollini.InfoPage();
+		</script>
+		
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=320; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Tecnoteca srl">
+	<title>Arpav Pollini - Stazione</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/pollini.css" />
+	
+	<script type="text/javascript" src="js/pollini/pollini.js"></script>
+	<script type="text/javascript" src="js/pollini/db/stazione.js"></script>
+	<script type="text/javascript" src="js/pollini/db/particella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/giorno.js"></script>
+	<script type="text/javascript" src="js/pollini/db/service.js"></script>	
+	<script type="text/javascript" src="js/pollini/db/preferenzaParticella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/preferenzaStazione.js"></script>	
+	<script type="text/javascript" src="js/pollini/db/configurazione.js"></script>
+	
+	<script type="text/javascript" src="cordova-2.3.0.js"></script>
+	
+	<script type="text/javascript" src="js/jquery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-init.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mobile-1.2.0.min.js"></script>	
+</head>
+
+<body class="theme">
+	<div data-role="page" id="stazione">
+		<div data-role="header" id="polliniHeader">
+			<img src="img/banner_app_pollini_sx.png" width="50%" class="floatLeft"/>
+			<img src="img/banner_app_pollini_dx_empty.png" width="50%" id="customBanner" />
+		</div>
+	
+		<div class="ui-header ui-bar-b">
+			<h6 class="ui-title">BOLLETTINO POLLINI</h6>
+			<a href="index.html" data-icon="home" class="ui-btn-right" data-theme="b">Home</a>
+		</div>
+		
+		<div class="ui-header ui-sub-bar-a">
+			<h6 id="titleBar" class="ui-title"></h6>
+		</div>
+		 
+		<div data-role="controlgroup" data-type="horizontal" class="spaceTop center" id="navBar"></div>
+		
+		<div data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" class="spaceTop spaceBottom" data-role="collapsible" data-theme="e" data-content-theme="d">
+		    <h4>Legenda</h4>
+			<ul data-role="listview" data-theme="d" data-divider-theme="b" data-inset="true">
+				<li data-role="list-divider">Tipo dato</li>
+	    		<li>
+	    			<div class="customRowText">Concentrazione</div>
+	    			<div class="levelImage"><img src="img/square.png" /></div>	    				    		
+			        <div class="clearBoth"></div>
+	    		</li>
+	    		<li>
+	    			<div class="customRowText">Previsione</div>
+	    			<div class="levelImage"><img src="img/triangle.png" /></div>
+			        <div class="clearBoth"></div>
+	    		</li>
+				<li data-role="list-divider">Livelli</li>
+	    		<li>
+	    			<div class="customRowText">Non disponibile</div>
+	    			<div class="prevision NDT"></div>
+					<div class="level ND"></div>
+			        <div class="clearBoth"></div>
+	    		</li>
+	    		<li>
+	    			<div class="customRowText">Assente</div>
+	    			<div class="prevision AssenteT"></div>
+	    			<div class="level Assente"></div>
+			        <div class="clearBoth"></div>
+	    		</li>
+	    		<li>
+	    			<div class="customRowText">Bassa</div>
+	    			<div class="prevision BassaT"></div>
+	    			<div class="level Bassa"></div>
+			        <div class="clearBoth"></div>
+	    		</li>
+	    		<li>
+	    			<div class="customRowText">Media</div>
+	    			<div class="prevision MediaT"></div>
+	    			<div class="level Media"></div>
+			        <div class="clearBoth"></div>
+	    		</li>	    		
+	    		<li>
+	    			<div class="customRowText">Alta</div>
+	    			<div class="prevision AltaT"></div>
+	    			<div class="level Alta"></div>
+			        <div class="clearBoth"></div>
+	    		</li>	  
+	    	</ul>
+		</div>
+		
+		<ul data-role="listview" data-theme="c" data-divider-theme="a" data-inset="true" id="rilievi" class="spaceTop"></ul>
+		
+		<hr/>    	 	    
+				
+		<div data-role="footer" class="ui-bar-b" id="footer">
+			<a href="logout.html" data-icon="delete" class="ui-btn-left hidden" data-theme="b" id="exitButton">Esci</a>
+		    <a href="info.html" data-icon="info" class="ui-btn-right"  data-theme="b">Info</a>
+		</div>
+		
+		<div data-role="footer" data-theme="a" data-tap-toggle="false" data-position="fixed" id="offlineNote" class="hidden">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html">OFFLINE, ultimo agg. <span id="lastUpdate"></span></a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="levelsPopup" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Chiudi</a>
+			<small>
+				<b id="levelsPopupTitle" class="toUpperCase"></b>
+				<br/>
+				<span id="levelsPopupC"><b>Concentrazione: </b><span id="levelsPopupCValue"></span></span>
+				<br/>
+				<span id="levelsPopupP"><b>Previsione: </b><span id="levelsPopupPValue"></span></span>
+			</small>
+		</div>
+				
+		<script type="text/javascript" src="js/stazionePage.js"></script>
+		<script type="text/javascript">
+			new Pollini.StazionePage();
+		</script>
+
+	</div>
+			
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=320; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Tecnoteca srl">
+	<title>Arpav Pollini - Impostazioni</title>
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/pollini.css" />
+	
+	<script type="text/javascript" src="js/pollini/pollini.js"></script>
+	<script type="text/javascript" src="js/pollini/db/stazione.js"></script>
+	<script type="text/javascript" src="js/pollini/db/particella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/giorno.js"></script>
+	<script type="text/javascript" src="js/pollini/db/service.js"></script>	
+	<script type="text/javascript" src="js/pollini/db/preferenzaParticella.js"></script>
+	<script type="text/javascript" src="js/pollini/db/preferenzaStazione.js"></script>
+	
+	<script type="text/javascript" src="cordova-2.3.0.js"></script>
+	
+	<script type="text/javascript" src="js/jquery/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-init.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.mobile-1.2.0.min.js"></script>	
+</head>
+
+<body class="theme">
+	<div data-role="page" id="impostazioni">
+		<div data-role="header" id="polliniHeader">
+			<img src="img/banner_app_pollini_sx.png" width="50%" class="floatLeft"/>
+			<img src="img/banner_app_pollini_dx_empty.png" width="50%" id="customBanner" />
+		</div>
+		<div class="ui-header ui-bar-b">
+			<h6 class="ui-title">BOLLETTINO POLLINI</h6>
+			<a href="index.html" data-icon="home" class="ui-btn-right" data-theme="b">Home</a>
+		</div>				
+		<div class="ui-header ui-sub-bar-a">
+			<h6 class="ui-title">Servizio di allerta</h6>
+		</div>
+
+		<div data-role="content">
+			<form id="target" action="index.html" method="get">
+				<p><small>Scegli stazione e famiglia (anche più di una) per ricevere il messaggio di allerta nel caso di aumento delle concentrazioni</small></p>
+				<hr/>
+				
+				<h2 class="blueText">Scegli stazione</h2>
+		        <div data-role="fieldcontain">
+		            <fieldset>		             
+	                    <fieldset data-role="controlgroup" id="stazioniList">
+	                    </fieldset>		                
+		            </fieldset>
+		        </div>
+		        
+		        <h2 class="blueText">Scegli famiglia botanica</h2>
+		        <div data-role="fieldcontain">
+		            <fieldset>
+	                    <fieldset data-role="controlgroup" id="particelleList">
+	                    </fieldset>
+		            </fieldset>
+		        </div>
+		        
+		        <input data-theme="b" type="submit" value="Conferma" />
+		    </form>
+		    		    
+		    <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all">
+				<div data-role="header" data-theme="a" class="ui-corner-top">
+					<h1>Aggiornamento</h1>
+				</div>
+				<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content center">
+					<p>Dati aggiornati correttamente!</p>
+					<a href="index.html" data-role="button" data-inline="true" data-transition="flow" data-theme="b">OK</a>  
+				</div>
+			</div>		    
+		</div>
+		
+		<div data-role="footer" class="ui-bar-b" id="footer">
+			<a href="logout.html" data-icon="delete" class="ui-btn-left hidden" data-theme="b" id="exitButton">Esci</a>
+		    <a href="info.html" data-icon="info" class="ui-btn-right"  data-theme="b">Info</a>
+		</div>
+		
+		<script type="text/javascript" src="js/impostazioniPage.js"></script>
+		<script type="text/javascript">
+			new Pollini.ImpostazioniPage();
+		</script>
+
+	</div>
+	
+</body>
+
+</html>
