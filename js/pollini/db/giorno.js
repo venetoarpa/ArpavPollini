@@ -63,7 +63,7 @@ Pollini.Giorno = {
 								  Pollini.Giorno.COL_DATA,
 								  Pollini.Particella.ALIAS_ID									  							  							  
 								  );
-		Pollini.log(query);
+		Pollini.log("getLast - " + query);
 		db.transaction(function (tx) {
 			tx.executeSql(query, [], function(tx, results) {							
 					callback(results.rows);

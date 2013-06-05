@@ -104,6 +104,11 @@ Pollini = {
 			exitButton.addClass("visible");	
 		}
 	},
+	revertDate: function(dateString) {
+		// from yyyy/mm/dd to dd/mm/yyyy OR viceversa
+		dataPart = dateString.match(/\d+/g);
+		return dataPart[2]+"/"+dataPart[1]+"/"+dataPart[0];
+	},
 	exitApp: function() {
 		navigator.app.exitApp();
 	},

@@ -223,7 +223,10 @@
 		particellaXml.find('GIORNO').each(function() {
 			idGiorno++;
 			giornoXml = $(this);
+			
 			data = giornoXml.attr('data');
+			data = Pollini.revertDate(data);
+			
 			valore = giornoXml.attr('valore');
 			concentrazione = giornoXml.attr('concentrazione');
 			

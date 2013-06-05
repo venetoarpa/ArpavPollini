@@ -135,7 +135,7 @@ function showLevelsPopup(data,stazione,particella,concentrazione,previsione) {
 						'data-iconpos':'right',
 						'href': getLink(stationId, day, nextParam), });
 		
-		var date = $('<a>', {'text': day,
+		var date = $('<a>', {'text': Pollini.revertDate(day),
 						'data-theme':'b',
 						'data-role':'button'});
 		
